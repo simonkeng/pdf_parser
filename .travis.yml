@@ -1,0 +1,12 @@
+language: python
+sudo: false
+
+branches:
+    only:
+      - master
+python:
+  - 3.6
+  - 3.5
+  - 2.7
+script:
+  - pytest
