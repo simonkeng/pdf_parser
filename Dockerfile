@@ -9,4 +9,4 @@ COPY test_data.pdf /opt/test_data.pdf
 COPY pdf-rip.py /opt/pdf-rip.py
 
 # todo
-CMD ["bash"]
+CMD ["python"]
