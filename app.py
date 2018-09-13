@@ -1,19 +1,13 @@
-import textract
-import spacy
+import subprocess, sys
 
-# load spaCy model
-nlp = spacy.load('en_core_web_sm')
+##### WIP
 
-# convert PDF into string and cast as unicode 
-raw_data = unicode(textract.process('test_data.pdf'), 'utf-8')
+# copy PDF into container
 
-# use model
-doc = nlp(raw_data)
+# run python command in container
 
-for ent in doc.ents:
-    
-    # if the entity label is geopolitical entity
-    if ent.label_ == 'GPE':
-        print ent.text
-    
+# copy pickle file back out
 
+def main(pdf, containter_id):
+
+    subprocess.call(['docker', 'cp', ])
