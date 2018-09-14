@@ -1,3 +1,9 @@
+'''
+Python 2.7 command line tool, intended for execution in Docker container
+
+Usage: python pdf-rip.py some-pdf-file.pdf
+'''
+
 import textract
 import pickle
 import sys
