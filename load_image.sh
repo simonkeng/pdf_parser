@@ -1,3 +1,5 @@
+# not necessary anymore, but keeping it around just incase
+
 tartype=$1
 
 if [[ $tartype = *".tar"* ]]; then
@@ -7,3 +9,4 @@ fi
 if [[ $tartype = *".tgz"* ]]; then
   exec gunzip -c $tartype | docker load
 fi
+

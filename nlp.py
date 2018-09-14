@@ -4,7 +4,6 @@ from pickle file containing PDF data.
 
 Usage: 
 import nlp
-
 data = nlp.read('my-data.pkl')
 doc = nlp.process(data)
 '''
