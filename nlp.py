@@ -1,3 +1,14 @@
+'''
+Python 3.6 module for generating spaCy model 
+from pickle file containing PDF data. 
+
+Usage: 
+import nlp
+
+data = nlp.read('my-data.pkl')
+doc = nlp.process(data)
+'''
+
 import spacy
 import sys
 import pickle
@@ -8,14 +19,6 @@ nlp = spacy.load('en_core_web_sm')
 def read(pkl):
     with open(pkl, 'rb') as fp:
         data = pickle.load(fp)
-    data = data.split(' ')
-    
-    if '\n' in data:
-        data.remove('\n')
-
-    print(data)
-
-
     return data
 
 def process(data):
@@ -28,15 +31,9 @@ def main(pkl):
 
     # your analysis and parsing here...
 
-    for token in doc:
-
-        # IC50 
-        if token.shape_ == 'XXdd':
-            
-            print('TOKEN', token.text)
-            print('SENTENCE', token.sent)
+    return doc
 
 
 if __name__ == '__main__':
-    # main(sys.argv[1])
-    read(sys.argv[1])
+    main(sys.argv[1])
+
