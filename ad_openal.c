@@ -40,6 +40,10 @@
 
 #include "ad.h"
 
+// SDK - 09-27-2018
+// These lines below, were what was breaking
+// the pocketsphinx install, requred by textract.
+// Solution: update the path "OpenAL" 
 #include <OpenAL/al.h>
 #include <OpenAL/alc.h>
 
