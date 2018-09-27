@@ -1,12 +1,6 @@
 '''
-Python 2.7 command line tool for extracting 
-textual & numeric data from the following file formats:
-
-.csv, .doc, .docx, .eml, .epub, .gif, 
-.jpg, .jpeg, .json, .html, .htm, .mp3, 
-.msg, .odt, .ogg, .pdf, .png, .pptx, 
-.ps, .rtf, .tiff, .tif, .txt, .wav, 
-.xlsx, .xls 
+Python 2.7 command line tool for extracting
+textual & numeric data from PDFs.
 
 Usage: python pdf-rip.py document.pdf
 
@@ -17,9 +11,9 @@ import pickle
 import sys, os
 
 def rip(fname):
-    ''' 
+    '''
     Extract data from the input file.
-    
+
     input: file
     returns: unicode text from file
     '''
@@ -42,11 +36,11 @@ def write(data, fname):
 
 
 def main(files):
-    
-    # if a single PDF file 
+
+    # if a single PDF file
     if os.path.isfile(files):
         return write(rip(files), files)
-    
+
     # if a folder containing a bunch of PDFs
     if os.path.isdir(files):
         for f in os.listdir(files):
