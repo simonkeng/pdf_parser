@@ -9,28 +9,26 @@ import pickle
 import sys, os
 
 def rip(pdf):
+
     data = unicode(textract.process(pdf), 'utf-8')
     return data
 
-def write(data):
-    with open('pdf-data.pkl', 'wb') as fp:
+def write(data, fname):
+    fname = fname.split('.')[0] + '.pkl'
+    with open(fname, 'wb') as fp:
         pickle.dump(data, fp)
 
 def main(pdfs):
-    
-    if len(pdfs) > 2:
-        for pdf in pdfs[1:]:
-            return write(rip(pdf))
 
-    else:
-        return write(rip(pdfs))
+    # if a single PDF file 
+    if os.path.isfile(pdfs):
+        return write(rip(pdfs), pdfs)
+    
+    # if a folder containing a bunch of PDFs
+    if os.path.isdir(pdfs):
+        for f in os.listdir(pdfs):
+            return write(rip(f), f) # currently not working.. 
 
 if __name__ == '__main__':
-    if len(sys.argv) > 2:
-        inp = sys.argv
-    else:
-        inp = sys.argv[1]
-
-    main(inp)
-
+    main(sys.argv[1])
 
