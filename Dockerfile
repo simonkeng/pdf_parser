@@ -1,6 +1,6 @@
 FROM python:2.7-slim
 
-WORKDIR /opt
+WORKDIR /tmp
 
 ARG DEBIAN_FRONTEND=noninteractive
 
@@ -10,7 +10,7 @@ RUN \
     apt-get -y install git-core && \
     git clone --recursive https://github.com/bambocher/pocketsphinx-python
 
-COPY ad_openal.c /opt/pocketsphinx-python/deps/sphinxbase/src/libsphinxad/ad_openal.c
+COPY ad_openal.c /tmp/pocketsphinx-python/deps/sphinxbase/src/libsphinxad/ad_openal.c
 
 RUN apt-get -y install swig3.0 
 RUN ln -s /usr/bin/swig3.0 /usr/bin/swig
@@ -39,15 +39,13 @@ RUN \
 
 RUN cd pocketsphinx-python/ && python setup.py install
 
-COPY requirements.txt /opt/requirements.txt
-RUN pip install -r /opt/requirements.txt
+COPY requirements.txt /tmp/requirements.txt
+RUN pip install -r /tmp/requirements.txt
 
-COPY test_data.pdf /opt/test_data.pdf
-COPY pdf_rip.py /opt/pdf_rip.py
+COPY test_data.pdf /tmp/test_data.pdf
+COPY pdf_rip.py /tmp/pdf_rip.py
 
 # Usage: 
-# COPY data.pdf /opt/data.pdf
-# CMD ["python", "pdf_rip.py", "data.pdf"]
-
-
+# COPY document.pdf /tmp/document.pdf
+# CMD ["python", "pdf_rip.py", "document.pdf"]
 
