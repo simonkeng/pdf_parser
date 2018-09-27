@@ -21,7 +21,7 @@ docker build -t pdf_parser .
 5. Run the container and execute the python script passing in a document:
 
 ```bash
-docker run -d -t pdf_parser bash -c "python pdf_rip.py test_data.pdf"
+docker run -i -t pdf_parser bash -c "python pdf_rip.py test_data.pdf"
 
 ```
 
