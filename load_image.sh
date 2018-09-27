@@ -1,4 +1,7 @@
-# not necessary anymore, but keeping it around just incase
+# Shell script for loading docker images 
+# from tarballs or tgz's
+
+# NOTE: not necessary anymore, but keeping it around
 
 tartype=$1
 

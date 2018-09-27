@@ -1,6 +1,6 @@
 '''
 Python 3.6 module for generating spaCy model 
-from pickle file containing PDF data. 
+from pickle file containing PDF/document data. 
 
 Usage: 
 import nlp
